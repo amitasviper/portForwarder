@@ -8,11 +8,8 @@ def forward(sock1,sock2):
 		flag = 1
 		while data or flag == 1:
 			flag = 0
-			#receiving data on local port
 			data = sock1.recv(4096)
 			if data:
-				#print "Received data : ",data
-				#sending data to remote port
 				sock2.sendall(data)
 			else:
 				sock1.shutdown(socket.SHUT_RD)
